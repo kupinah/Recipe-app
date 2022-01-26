@@ -1,0 +1,190 @@
+{
+  "configVersion": 1,
+  "timestamp": 1641776074347,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.d202e36743bceebe.js",
+        "/manifest.webmanifest",
+        "/polyfills.9f5a696305e458fc.js",
+        "/runtime.903174b902325901.js"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/death-rate-from-obesity.csv",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/0.jpg",
+        "/assets/images/1.jpg",
+        "/assets/images/2.jpg",
+        "/assets/images/3.jpg",
+        "/assets/images/4.jpg",
+        "/assets/images/5.jpg",
+        "/assets/images/6.jpg",
+        "/assets/images/7.jpg",
+        "/assets/images/8.jpg",
+        "/assets/images/9.jpg",
+        "/assets/images/gin.jpg",
+        "/assets/images/icons/calories.png",
+        "/assets/images/icons/camera.png",
+        "/assets/images/icons/clock.png",
+        "/assets/images/icons/cloud.png",
+        "/assets/images/icons/ingredients.png",
+        "/assets/images/icons/instructions.png",
+        "/assets/images/icons/light-bulb.png",
+        "/assets/images/icons/name.png",
+        "/assets/images/icons/recipe-book.png",
+        "/assets/images/icons/serving.png",
+        "/assets/images/lemonpie.jpg",
+        "/assets/images/maleuser.png",
+        "/assets/images/portrait.jpg",
+        "/assets/images/ratatuj.webp",
+        "/assets/images/shrimppasta.jpg",
+        "/assets/images/white.png",
+        "/assets/javascripts/about_us.js",
+        "/assets/javascripts/calculator.js",
+        "/assets/javascripts/edit_profile.js",
+        "/assets/javascripts/ethereum/truffle-contract.min.js",
+        "/assets/javascripts/ethereum/web3.min.js",
+        "/assets/javascripts/login.js",
+        "/assets/javascripts/mainPage.js",
+        "/assets/javascripts/new_recipe.js",
+        "/assets/javascripts/recepti-web3.js",
+        "/assets/stylesheets/style.css",
+        "/assets/stylesheets/style_aboutus.css",
+        "/assets/stylesheets/style_calculator.css",
+        "/assets/stylesheets/style_edit_profile.css",
+        "/assets/stylesheets/style_index.css",
+        "/assets/stylesheets/style_login.css",
+        "/assets/stylesheets/style_myprofile.css",
+        "/instructions.b62b392c3e9bd920.png",
+        "/light-bulb.f749fc5f7a98a3a7.png"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.gstatic\\.com\\/.*",
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*"
+      ]
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "lp-21-recipes-api",
+      "patterns": [
+        "http:\\/\\/localhost:3000\\/.*",
+        "https:\\/\\/lp-21-recipes\\.herokuapp\\.com\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 50,
+      "maxAge": 3600000,
+      "timeoutMs": 10000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/death-rate-from-obesity.csv": "abb6b89676defc8717dcac0adb3ddafda12bf171",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/images/0.jpg": "f41f455169f302b1714dc223d945e46bff7388bc",
+    "/assets/images/1.jpg": "4bf66b37bc34daa8e269c444071eb22569a6386f",
+    "/assets/images/2.jpg": "0f9113af7e51da55577e03986cc461655ab9c8ed",
+    "/assets/images/3.jpg": "a6da34948450f9da2729966450e116e673142580",
+    "/assets/images/4.jpg": "9751a15ca9b218f1ec598de939dee7665e0ad61c",
+    "/assets/images/5.jpg": "756550b8caf3a34353dd45197adefafedfd8ac1b",
+    "/assets/images/6.jpg": "1286f8c37a78a077703704e860d94f272c252a95",
+    "/assets/images/7.jpg": "81531aaddb64a933495191c91b30e406a3c145fe",
+    "/assets/images/8.jpg": "a580c9abded7b5223ac69f6d749b7e0bae25cfd9",
+    "/assets/images/9.jpg": "3950c51279cec0bb542fbf380b84dbf5d7350549",
+    "/assets/images/gin.jpg": "2fbab734680720af2becf306b6aba083db683a82",
+    "/assets/images/icons/calories.png": "ce793bfdfe69a2bb77a58d901d75a0c3c73fc54e",
+    "/assets/images/icons/camera.png": "09d6764b4292d73d554c0ccbf7a0767d068fa072",
+    "/assets/images/icons/clock.png": "104eb899a24305cf0e4e014b6c79683a87f7d81a",
+    "/assets/images/icons/cloud.png": "d83e0c3d4b902d7a2af993df3ac2420c717cc5be",
+    "/assets/images/icons/ingredients.png": "f3aae096dfe13edc21620adb46d403d8473bbd27",
+    "/assets/images/icons/instructions.png": "0d83fb18d57e93df11441091cb6bc8b0d6903c70",
+    "/assets/images/icons/light-bulb.png": "707813713bea2bbf87cc870ed760d09fbef54874",
+    "/assets/images/icons/name.png": "2131a1b9102e5639bf2d332d0e8bc2fb79f5b7c2",
+    "/assets/images/icons/recipe-book.png": "5f55f229199b02f536140dc5eaf82713fe76a9a7",
+    "/assets/images/icons/serving.png": "64ebf708e5e63ea2c7caa3bce2e5bfdab28a79df",
+    "/assets/images/lemonpie.jpg": "511c5b2ee89a00dc983453200d4b493799e09765",
+    "/assets/images/maleuser.png": "09dd5a37b816d3329454263c14a9bd8dc6001708",
+    "/assets/images/portrait.jpg": "57b03fcdc549b805d20e0f0d899222e9e284ad2e",
+    "/assets/images/ratatuj.webp": "7e7fb1c24bde85585e82fb9898715aef15f37b7b",
+    "/assets/images/shrimppasta.jpg": "1342455b5fa1622add26bd51a1feb45e580bff32",
+    "/assets/images/white.png": "47b3648ea1cfbc8dae4da28a6ce057eb38cfe91c",
+    "/assets/javascripts/about_us.js": "ba9e06bc4f28c93fd38a924d8b4b47d91ad4eab7",
+    "/assets/javascripts/calculator.js": "777746d28740ba8cbc2fa40a5a073765a07fdc6d",
+    "/assets/javascripts/edit_profile.js": "d6a137c31dab1edbb3f9b9c5cbf5ddffa24b2118",
+    "/assets/javascripts/ethereum/truffle-contract.min.js": "f0a76de4573f705e5461a144b93aeaeba9d75328",
+    "/assets/javascripts/ethereum/web3.min.js": "2b951ff9d0a584cf91b46ee1880ccb72a95da0a8",
+    "/assets/javascripts/login.js": "59f91d2b16d4bb6bd53c687e73ad9c568498a713",
+    "/assets/javascripts/mainPage.js": "1e45a610de09641d99175af680cdec223d5b50b1",
+    "/assets/javascripts/new_recipe.js": "4753f0782b46c6316160a6959a16db6b31898da8",
+    "/assets/javascripts/recepti-web3.js": "cf227410023e0d879184008020f84eeff0d50e0b",
+    "/assets/stylesheets/style.css": "8bbbc7e91b6dc590d135d83094268515d580342a",
+    "/assets/stylesheets/style_aboutus.css": "fa959efdfb98cfd989b5dd18f4ad1e79c9688d9e",
+    "/assets/stylesheets/style_calculator.css": "34c15d20c7cf5b98c988600df6c00b76414a407f",
+    "/assets/stylesheets/style_edit_profile.css": "af3db0ae78ac3900943c179870a34fa8960ee638",
+    "/assets/stylesheets/style_index.css": "1513c8d03bc1ec8399e211c3be6e4fe86815d1c6",
+    "/assets/stylesheets/style_login.css": "7ca14b6cd41dd2c009827e94f7edb6266dce75a5",
+    "/assets/stylesheets/style_myprofile.css": "0d46afc02325c066855c63b8db55ab2b52aaf1a7",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "0e66908cce736db2059a717ea8d923cef0b4c18b",
+    "/instructions.b62b392c3e9bd920.png": "0d83fb18d57e93df11441091cb6bc8b0d6903c70",
+    "/light-bulb.f749fc5f7a98a3a7.png": "707813713bea2bbf87cc870ed760d09fbef54874",
+    "/main.d202e36743bceebe.js": "f59722b4e12f26d5d7afe2f7cf849a822a45fd8c",
+    "/manifest.webmanifest": "024600a91bb1e8e859200f1b04766ea00e474b87",
+    "/polyfills.9f5a696305e458fc.js": "0ae5fac108a8da2a182d954a2d73a49d2a9d03f8",
+    "/runtime.903174b902325901.js": "5e6f7f2e9b20a072e72ff53809451ab47df8c336"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

@@ -1,0 +1,50 @@
+input[type=text], input[type=password], input[type=email] {
+  padding: 5px 5px;
+  margin: 4px 0;
+  display: block;
+  border: 1px solid #ccc;
+  font-family: Calibri;
+  color: dimgray;
+  width: 80%;
+}
+.buttons{
+  margin-top: 15px
+}
+label{
+  font-family: Calibri;
+  color: dimgray;
+}
+button:hover {
+  opacity: 0.8;
+}
+.posebno{
+  position: absolute;
+  left: 40%;
+}
+legend{
+  color: gray
+}
+.prijava{
+  display: block;
+  margin-top: 1%;
+}
+.one{
+  float: left;
+  position: absolute;
+}
+.two{
+  float: left;
+  position: absolute;
+  visibility: hidden;
+}
+#mail{
+  height: 50px;
+  width: 205px;
+}
+#register_new, #login_href{
+  color: dimgray;
+  font-size: 12px;
+}
+#validacija{
+  display: none;
+}

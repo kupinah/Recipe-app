@@ -1,0 +1,245 @@
+<head>
+    
+    <link href="/assets/stylesheets/style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/style_myprofile.css" rel="stylesheet" />
+
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="head">My Profile</h1>
+            <h1 class="head"></h1>
+        </div>
+        <div class="col">
+            <!--  <button type="button" class="btn btn-light float-right">Edit</button> -->
+            <a href="edit-profile" class="btn btn-light float-right" id="editGumb">Edit Profile</a>
+        </div>
+    </div>
+</div>
+
+<div class="body-margin">
+    <div class="container-fluid">
+        <div class="row aligned">
+            <div class="col-auto col">
+                <div class="pic-container">
+                    <img class="profile-pic" src="assets/images/maleuser.png" width="200" alt="profile-pic">
+                </div>
+                <br>
+                <div class="username-container">
+                    <h4 class="username">{{uporabnik.uporabniskoIme}}</h4>
+                </div>
+            </div>
+            <div class="info col-xs col">
+                <h3>{{uporabnik.ime}} {{uporabnik.priimek}}</h3>
+                <h3>{{detajli.location}}</h3>
+                <h3 *ngIf="!detajli.location" style="color: lightgray;">Location can be added in 'Edit profile'</h3>
+                <h3>{{uporabnik.email}}</h3>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <p></p>
+    <div class="about">
+        <h3 class="abt">About me</h3>
+        <p>{{detajli.about}}</p>
+        <p *ngIf="!detajli.about" style="color: lightgray;">About you can be added in 'Edit profile'</p>
+    </div>
+
+    <div class="recipe">
+
+        <h3>My Recipes</h3>
+
+        <div class="container-slider" >
+            <div *ngFor="let recept of recepti; let i = index">
+
+                
+                <div class="kartica d-flex justify-content-end" >
+                    <div class="bg-info position-absolute" style="--bs-bg-opacity: 0;">
+    
+                        <!-- Button trigger modal -->
+                        <a data-bs-toggle="modal" attr.data-bs-target="#example{{i}}" class="edtBtn"><i
+                                class="fas fa-pen-alt p-2"></i></a>
+    
+                        <!--<a href="#"  class="edtBtn"><i class="far fa-trash-alt p-2"></i></a>-->
+                        <form (ngSubmit)='izbrisiRecept(i)' id="deleteRecipe" autocomplete="off">
+                            <input type="text" value="{{recept._id}}" name="skrito" hidden>
+                            <button type="submit" class="far fa-trash-alt deleteBtn"
+                                style="background: none; border: none;"></button>
+                        </form>
+    
+                    </div>
+    
+                    <!--<img width="200" src="/images/ratatuj.webp" alt="Ratatouille">-->
+                    <img src="{{recept.img}}" style="height:200px; width: 200px" class="boxin">
+                    <div class="centered">
+                        <button type="button" class="btn btn-info btn-sm" attr.data-bs-target="#myModal{{i}}"
+                            data-bs-toggle="modal">{{recept.name}}</button>
+                    </div>
+                </div>
+    
+                <!-- Okno za recept -->
+                <div class="modal fade" id="myModal{{i}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-break" id="exampleModalLabel">{{recept.name}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-break">{{recept.description}}</p>
+                                <p><b>Preparation time: </b>{{recept.preparation}} mins</p>
+                                <p><b>Cooking time: </b>{{recept.cooking}} mins</p>
+                                <p><b>Calories: </b>{{recept.calories.calories}}</p>
+                                <p><b>Servings: </b>{{recept.calories.servings}}</p>
+                                <p><b>Ingredients: </b>{{recept.ingredients.ingredientsList}}</p>
+                                <p class="text-break"><b>Preparation instructions: </b>{{recept.instructions}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Okno za edit recept -->
+                <div class="modal fade" id="example{{i}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit recipe</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+
+
+                                <form autocomplete="off" (ngSubmit)='posodobiRecept(i, recept._id)'>
+                                    <div class="row">
+                                        <div class="col-fluid">
+                                           <input type="text" id="recipeName" name="recipeID"
+                                                class="form-control box-shadow" value='{{recept._id}}' hidden>
+    
+                                            <label for="recipeName" value="hamburger" class="form-label">Recipe name</label>
+                                            <input [(ngModel)] = "recept.name" type="text" id="name" name="name" class="form-control box-shadow" value='{{recept.name}}' required>
+                                        </div>
+                                        <!--<div class="col-fluid">
+                                <label class="form-label" for="recipePicture">Upload a picture</label>
+                                <input type="file" id="recipePicture" class="form-control box-shadow" name="recipePicture" required>
+                            </div>-->
+                                    </div>
+    
+                                    <!--Short description, number of servings, time and calories-->
+    
+                                    <div class="row margin-fix-row">
+                                        <div class="col-fluid">
+                                            <label for="recipeName" value="hamburger" class="form-label">Short
+                                                Description</label>
+                                            <div class="form-floating">
+                                                <textarea [(ngModel)] = "recept.description" class="form-control box-shadow" maxlength="300"
+                                                    placeholder="Short description" id="description"
+                                                    name="description" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-fluid">
+                                            <div class="row">
+                                                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <label class="form-label" for="servings">Servings</label>
+                                                    <input [(ngModel)] = "recept.calories.servings" type="text" id="servings" name="servings"
+                                                        class="form-select box-shadow" value="{{recept.calories.servings}}">
+    
+                                                </div>
+                                                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <label class="form-label" for="calories">Calories</label>
+                                                    <div class="input-group">
+                                                        <input [(ngModel)] = "recept.calories.calories" type="text" class="form-control box-shadow" id="calories"
+                                                            name="calories" value='{{recept.calories.calories}}' required>
+                                                        <div class="input-group-text box-shadow">kcal</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row margin-fix">
+                                                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="preparation" class="form-label">Preparation</label>
+                                                    <div class="input-group">
+                                                        <input [(ngModel)] = "recept.preparation" type="number" id="preparation"
+                                                            class="form-control box-shadow" name="preparation"
+                                                            value='{{recept.preparation}}' required>
+                                                        <div class="input-group-text box-shadow">min</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <label class="form-label" for="cooking">Cooking</label>
+                                                    <div class="input-group">
+                                                        <input [(ngModel)] = "recept.cooking" type="number" class="form-control box-shadow" id="cooking"
+                                                            name="cooking" value='{{recept.cooking}}' required>
+                                                        <div class="input-group-text box-shadow">min</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <!--Ingredients and preparation instructions-->
+    
+                                    <div class="row margin-fix-row">
+                                        <!--<div class="col-fluid">
+                                <div class="ingredientsButton box-shadow">
+                                    <input type="text" id="ingredients" maxlength="50" placeholder="e.g. 4 medium potatoes">
+                                    <span onclick="newElement()" class="ingredientItem" id="addIngredient">Add</span>
+                                </div>
+                                <ul id="ingredientList" class="list-group list-group-flush box-shadow"></ul>
+                            </div> -->
+                                        <input type="text" id="recipeIngredients" style="display: none" name="ingredients">
+    
+                                        <div class="col-fluid">
+                                            <label>Preparation instructions</label>
+                                            <div class="form-floating">
+                                                <textarea [(ngModel)] = "recept.instructions" class="form-control box-shadow" id="instructions"
+                                                    name="instructions"
+                                                    required>{{recept.instructions}}</textarea>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <!--Button for publishing recipe-->
+    
+                                    <div class="row margin-fix-row">
+                                        <div class="d-grid col-6 col-sm-6 col-md-4 col-lg-3 mx-auto">
+                                            <button id="publish_new_recipe" class="btn btn-primary btn-dark fs-5 box-shadow"
+                                                type="submit" data-bs-dismiss="modal">Publish</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="kartica d-flex justify-content-end">
+                <img width="200" src="/assets/images/white.png" alt="white picture">
+                <div class="add-align">
+                    <h5><b>Add new</b></h5>
+                </div>
+                <div>
+                    <a href="/new_recipe" class="btn btn-outline-info centered">+</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="../../../assets/javascripts/new_recipe.js"></script>

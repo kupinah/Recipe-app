@@ -1,0 +1,123 @@
+<div class="container">
+
+  <!--Recipe name and picture-->
+
+  <form (ngSubmit)="dodajNovRecept()" id="addRecipe" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+        <label for="name" class="form-label">Recipe name</label>
+        <img src="../../../../assets/images/icons/name.png" alt="Text icon" class="icon-fix">
+        <input type="text" id="name" name="name" [(ngModel)]="novRecept.name" class="form-control box-shadow" required>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 margin-fix-575">
+        <label class="form-label" for="img">Upload a picture</label>
+        <img src="../../../../assets/images/icons/camera.png" alt="Camera icon" class="icon-fix">
+        <input type="file" id="img" class="form-control box-shadow" name="img" (change)="handleUpload($event)" required>
+      </div>
+    </div>
+
+    <!--Short description, number of servings, time and calories-->
+
+    <div class="row margin-fix-row">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-floating">
+                <textarea class="form-control box-shadow" maxlength="300" placeholder="Short description"
+                          id="description" name="description" [(ngModel)]="novRecept.description" required></textarea>
+          <label for="description">Short description</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 margin-fix-575">
+        <div class="row">
+          <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+            <label class="form-label" for="servings">Servings</label>
+            <img src="../../../../assets/images/icons/serving.png" alt="Number icon" class="icon-fix">
+            <select class="form-select box-shadow" id="servings" name="servings" [(ngModel)]="novRecept.calories.servings" required>
+              <option hidden disabled label="Select"></option>
+              <option [ngValue]="1">1</option>
+              <option [ngValue]="2">2</option>
+              <option [ngValue]="3">3</option>
+              <option [ngValue]="4">4</option>
+              <option [ngValue]="5">5</option>
+              <option [ngValue]="6">6</option>
+            </select>
+          </div>
+          <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+            <label class="form-label" for="calories">Calories</label>
+            <img src="../../../../assets/images/icons/calories.png" alt="Calories icon" class="icon-fix">
+            <div class="input-group">
+              <input type="number" class="form-control box-shadow" id="calories" name="calories" [(ngModel)]="novRecept.calories.calories" required>
+              <div class="input-group-text box-shadow">kcal</div>
+            </div>
+          </div>
+        </div>
+        <div class="row margin-fix">
+          <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+            <label for="preparation" class="form-label">Preparation</label>
+            <img src="../../../../assets/images/icons/clock.png" alt="Timer icon" class="icon-fix">
+            <div class="input-group">
+              <input type="number" id="preparation" class="form-control box-shadow" name="preparation" [(ngModel)]="novRecept.preparation" required>
+              <div class="input-group-text box-shadow">min</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+            <label class="form-label" for="cooking">Cooking</label>
+            <img src="../../../../assets/images/icons/clock.png" alt="Timer icon" class="icon-fix">
+            <div class="input-group">
+              <input type="number" class="form-control box-shadow" id="cooking" name="cooking" [(ngModel)]="novRecept.cooking" required>
+              <div class="input-group-text box-shadow">min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Ingredients and preparation instructions-->
+
+    <div class="row margin-fix-row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="ingredientsButton box-shadow">
+          <img src="../../../../assets/images/icons/ingredients.png" alt="Ingredients icon">
+          <h2 class="ingredients-fix-h2">Ingredients</h2>
+          <input type="text" id="ingredients" maxlength="50" placeholder="e.g. 4 medium potatoes">
+          <span onclick="newElement(); izpolni()" class="ingredientItem" id="addIngredient">Add</span>
+        </div>
+        <!--Dynamic list of ingredients-->
+        <ul id="ingredientList" class="list-group list-group-flush box-shadow"></ul>
+      </div>
+      <!-- HIDDEN -->
+      <input type="text" style="display: none" id="ingredientsList" name="ingredientsList" class="form-control box-shadow" required>
+      <!-- HIDDEN -->
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="form-floating">
+                <textarea class="form-control box-shadow" placeholder="Preparation instructions"
+                          id="instructions" name="instructions" [(ngModel)]="novRecept.instructions" required></textarea>
+          <label for="instructions">Preparation instructions</label>
+        </div>
+      </div>
+    </div>
+
+    <!--Button for publishing recipe-->
+
+    <div class="row margin-fix-row">
+      <div class="d-grid col-6 col-sm-6 col-md-4 col-lg-3 mx-auto">
+        <button id="publish_new_recipe" name="btnPublish" class="btn btn-primary btn-dark fs-5 box-shadow" type="submit">Publish</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="validation" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">... :(</h5>
+      </div>
+      <div class="modal-body">
+        <p id="validation_text"></p>
+      </div>
+      <div class="modal-footer">
+        <button id="validation_close" type="button" class="btn btn-secondary"
+                data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

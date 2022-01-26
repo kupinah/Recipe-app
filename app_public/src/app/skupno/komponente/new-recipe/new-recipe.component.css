@@ -1,0 +1,147 @@
+@media (max-width: 767px) {
+  .margin-fix-767 {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 767px) {
+  .margin-fix-767-2 {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .margin-fix-992 {
+    margin-top: 0;
+  }
+
+  .container {
+    width: 800px;
+  }
+}
+
+@media (max-width: 575px) {
+  .margin-fix-575 {
+    margin-top: 10px;
+  }
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.icon-fix {
+  position: relative;
+  top: -2px;
+}
+
+.margin-fix {
+  margin-top: 10px;
+}
+
+.margin-fix-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ingredientsButton {
+  background-color: #212529;
+  border-radius: 10px;
+  padding: 20px 30px;
+  color: white;
+  text-align: center;
+}
+
+.ingredientsButton:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#ingredients {
+  margin: 0;
+  border: none;
+  border-radius: 10px;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  text-align: center;
+}
+
+.ingredientItem {
+  padding: 10px;
+  width: 22%;
+  float: right;
+  border-radius: 10px;
+  background: #555555;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ingredientItem:hover {
+  background-color: gray;
+  color: #212529;
+}
+
+.close {
+  float: right;
+  right: 0;
+  top: 0;
+  padding: 2px 6px 2px 6px;
+}
+
+.close:hover {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #f44336;
+  color: white;
+}
+
+.ingredientItem {
+  overflow-wrap: anywhere;
+}
+
+.list-group {
+  padding-left: 2em;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#instructions {
+  background-image: url("../../../../assets/images/icons/instructions.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 250px;
+}
+
+#description {
+  background-image: url("../../../../assets/images/icons/light-bulb.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 150px;
+}
+
+#ingredientList {
+  margin: 20px 0 20px 0;
+  border-radius: 10px;
+}
+
+.ingredientListItem {
+  padding: 3px 5px 3px 5px;
+  position: relative;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.ingredientListItem {
+  margin: 5px 5px 5px 0;
+}
+
+.ingredientListItem:hover {
+  border-radius: 10px;
+}

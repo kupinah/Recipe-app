@@ -1,0 +1,148 @@
+<head></head>
+<div class="container-fluid">
+    <div class="d-inline-flex justify-content-center row p-5 zasrc">
+        <ng-container *ngIf="recepti?.length>10;else manjkot10">
+            <div class="card m-2 p-2 col-sm-6 col-md-4 col-lg-3 col-xl-2 recept"
+                *ngFor="let recept of recepti;let i=index">
+                <img src="{{recept.img}}" class="text-break" style="width:100%">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center text-break">{{recept.name}}</h5>
+                    <a data-bs-toggle="modal" attr.data-bs-target="#myModal{{i}}" class="btn btn-success mt-auto">Show
+                        recipe</a>
+                    <p></p>
+                    <ng-container *ngIf="jePovezava()"></ng-container>
+                    <div *ngIf="recept.userID |jeZunajni;else other" class="d-flex justify-content-center mt-3">
+                        <i class="fa{{ recept.avg < 1 ? 'r' : 's'}} fa-star"></i>
+                        <i class="fa{{ recept.avg < 2 ? 'r' : 's'}} fa-star"></i>
+                        <i class="fa{{ recept.avg < 3 ? 'r' : 's'}} fa-star"></i>
+                        <i class="fa{{ recept.avg < 4 ? 'r' : 's'}} fa-star"></i>
+                        <i class="fa{{ recept.avg < 5 ? 'r' : 's'}} fa-star"></i>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal{{i}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-break" id="exampleModalLabel">{{recept.name}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div *ngIf="recept.userID |jeZunajni">
+                                    <p class="text-break">{{recept.description}}</p>
+                                    <p><b>Preparation time: </b>{{recept.preparation}} mins</p>
+                                    <p><b>Cooking time: </b>{{recept.cooking}} mins</p>
+                                </div>
+                                <p><b>Calories: </b>{{recept.calories.calories | uppercase }}</p>
+                                <p><b>Servings: </b>{{recept.calories.servings}}</p>
+                                <p class="text-break"><b>Ingredients: </b>{{recept.ingredients.ingredientsList}}</p>
+                                <div *ngIf="recept.userID |jeZunajni">
+                                    <p class="text-break"><b>Preparation instructions: </b>{{recept.instructions}}</p>
+                                </div>
+
+                                <div *ngIf="recept.userID |jeZunajni">
+                                    <p><b>My rating</b></p>
+                                    <form>
+                                        <div class="row align-middle">
+                                            <div class="d-grid col-6 col-sm-6 col-md-3 col-lg-3 ">
+                                                <select class="form-select box-shadow" id="rating" name="rating"
+                                                    required [(ngModel)]="selectedRating">
+                                                    <option hidden disabled label="Select"></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                            <div class="d-grid col-6 col-sm-6 col-md-3 col-lg-3">
+                                                <button id="glupodugme" class="btn btn-primary btn-dark fs-5 box-shadow"
+                                                    (click)="updateRatingIndex(recept)">Rate</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<ul *ngIf="recepti?.length>=10" class="pagination justify-content-center">
+    <li *ngIf="p!=1" class="page-item"><a class="page-link" (click)=naslednjaStran(p-1)>Previous</a></li>
+    <li class="page-item"><a class="page-link" (click)=naslednjaStran(p+1)>Next</a></li>
+</ul>
+<!-- <div *ngIf="recepti?.length>=10">
+    <pagination-controls (pageChange)="p = $event;naslednjaStran(p)"></pagination-controls>
+</div> -->
+<ng-template #other>
+    <div class="d-flex justify-content-center mt-3"><i style="color: lightblue;" class="fas fa-check-double"></i></div>
+</ng-template>
+<ng-template #manjkot10>
+    <div class="card m-2 p-2 col-sm-6 col-md-4 col-lg-3 col-xl-2 recept" *ngFor="let recept of recepti;let i=index ">
+        <img src="{{recept.img}}" class="text-break" style="width:100%">
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-center text-break">{{recept.name}}</h5>
+            <a data-bs-toggle="modal" attr.data-bs-target="#myModal{{i}}" class="btn btn-success mt-auto">Show
+                recipe</a>
+            <p></p>
+            <div *ngIf="recept.userID |jeZunajni;else other" class="d-flex justify-content-center mt-3">
+                <i class="fa{{ recept.avg < 1 ? 'r' : 's'}} fa-star"></i>
+                <i class="fa{{ recept.avg < 2 ? 'r' : 's'}} fa-star"></i>
+                <i class="fa{{ recept.avg < 3 ? 'r' : 's'}} fa-star"></i>
+                <i class="fa{{ recept.avg < 4 ? 'r' : 's'}} fa-star"></i>
+                <i class="fa{{ recept.avg < 5 ? 'r' : 's'}} fa-star"></i>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal{{i}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-break" id="exampleModalLabel">{{recept.name}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngIf="recept.userID |jeZunajni">
+                            <p class="text-break">{{recept.description}}</p>
+                            <p><b>Preparation time: </b>{{recept.preparation}} mins</p>
+                            <p><b>Cooking time: </b>{{recept.cooking}} mins</p>
+                        </div>
+                        <p><b>Calories: </b>{{recept.calories.calories | uppercase }}</p>
+                        <p><b>Servings: </b>{{recept.calories.servings}}</p>
+                        <p class="text-break"><b>Ingredients: </b>{{recept.ingredients.ingredientsList}}</p>
+                        <div *ngIf="recept.userID |jeZunajni">
+                            <p class="text-break"><b>Preparation instructions: </b>{{recept.instructions}}</p>
+                        </div>
+                        <ng-container *ngIf="jePovezava()">
+                            <div *ngIf="recept.userID |jeZunajni">
+                                <p><b>My rating</b></p>
+                                <form>
+                                    <div class="row align-middle">
+                                        <div class="d-grid col-6 col-sm-6 col-md-3 col-lg-3 ">
+                                            <select class="form-select box-shadow" id="rating" name="rating" required
+                                                [(ngModel)]="selectedRating">
+                                                <option hidden disabled label="Select"></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-grid col-6 col-sm-6 col-md-3 col-lg-3">
+                                            <a data-bs-dismiss="modal" id="glupodugme" class="btn btn-primary btn-dark fs-5 box-shadow"
+                                                (click)="updateRatingIndex(recept)">Rate</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

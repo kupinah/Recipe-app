@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row align-middle mt-5">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      <form (ngSubmit)="dodajTestneRecepte()" style="display: inline-block">
+        <button id="dodajRecepte" type="submit" class="btn btn-success me-1">Insert Recipes</button>
+      </form>
+      <form (ngSubmit)="izbrisiRecepte()" role="form" style="display: inline-block">
+        <button id="izbrisiRecepte" type="submit" class="btn btn-danger ms-1">Drop Recipes</button>
+      </form>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-2 text-center">
+      <form (ngSubmit)="dodajTestneUporabnike()" role="form" style="display: inline-block">
+        <button id="dodajUsera" type="submit" class="btn btn-success me-1">Insert Users</button>
+      </form>
+      <form (ngSubmit)="izbrisiUporabnike(); odjava()" role="form" style="display: inline-block">
+        <button id="izbrisiUsera" type="submit" class="btn btn-danger ms-1">Drop Users</button>
+      </form>
+    </div>
+  </div>
+</div>

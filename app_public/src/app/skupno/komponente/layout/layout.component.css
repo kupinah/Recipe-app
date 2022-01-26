@@ -1,0 +1,13 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+li.dropdown:last-child .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+li:hover {
+  background: lightgray;
+}

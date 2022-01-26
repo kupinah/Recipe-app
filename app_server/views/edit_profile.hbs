@@ -1,0 +1,98 @@
+<head>
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="stylesheets/style_edit_profile.css" rel="stylesheet" />
+</head>
+
+<h1>Edit profile</h1>
+
+  <div class="container">
+    <div class="row">
+      
+
+
+      <div class="col inputi">
+        <form id="spremeniDetajle" action="/api/users" method="post" role="form">
+          <h2>Edit details</h2>
+          <div class="mrg">
+            <label for="UserUporabniskoIme"><b>Username</b></label>
+            <br>
+            <input type="text" id="UserUporabniskoIme" placeholder="Username" class="edit-my-profile input-field" name="username_input_field" pattern="^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$" value='{{uporabniskoIme}}' disabled>
+          </div>
+          <div>
+            <label for="userIme"><b>First name</b></label>
+            <br>
+            <input type="text" id="userIme" placeholder="First name" class="edit-my-profile input-field" name="ime_input_field" value='{{ime}}'>
+          </div>
+          <div class="mrg">
+            <label for="userPriimek"><b>Second name</b></label>
+            <br>
+            <input type="text" id="userPriimek" placeholder="Second name" class="edit-my-profile input-field" name="priimek_input_field" value='{{priimek}}'>
+          </div>
+          <div>
+            <label for="userLokacija"><b>Location <span class="optional"><em>(optional)</em></span></b></label>
+            <br>
+              <!--input type="text" id="userLokacija" placeholder="Location" class="edit-my-profile input-field" name="lokacija_input_field" value='{{detajli.location}}'-->
+              <textarea name="lokacija_input_field" id="userLokacija" placeholder="Location" rows="1" class="input-field" style="resize: none;">{{#each details as |detajli|}}{{detajli.location}}{{/each}}</textarea>
+          </div>
+          <div class="mrg">
+            <label for="userAbout"><b>About <span class="optional"><em>(optional, max 300 elements)</em></span></b></label>
+            <br>
+            <textarea name="about" id="userAbout" placeholder="About" rows="4" class="input-field" >{{#each details as |detajli|}}{{detajli.about}}{{/each}}</textarea>
+          </div>
+          <div>
+            <label for="userEmail"><b>Email</b></label>
+            <br>
+            <input type="email" id="userEmail" placeholder="Email" class="edit-my-profile input-field" name="mail_input_field" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value='{{email}}'>
+          </div>
+          <div>
+            <button type="submit" id="send_btn_details" class="btn btn-primary margin-gumb btn-submit">Submit changes</button>
+          </div>
+        </form>
+      </div>
+
+      
+      <div class="col inputi">
+        
+        <form id="spremeniGeslo" action="/api/updatePassword" method="post" role="form">
+          <h2>Change password</h2>
+          <div class="old-pass">
+            <label><b>Old password</b></label>
+            <br>
+            <input type="password" placeholder="Old password" class="edit-my-profile input-field" name="staro_geslo_input_field">
+          </div>
+          <div>
+            <label><b>New password</b></label>
+            <br>
+            <input type="password" placeholder="New password" class="edit-my-profile input-field" name="novo_geslo_prvic_input_field" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+          </div>
+          <div>
+            <label><b>Repeat new password</b></label>
+            <br>
+            <input type="password" placeholder="Repeat password" class="edit-my-profile input-field" name="novo_geslo_drugic_input_field" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+          </div>
+          <div>
+            <button type="submit" id="send_btn_geslo" class="btn btn-primary btn-submit">Change password</button>
+          </div>
+
+        </form>
+      </div>
+    </div>  
+  </div>
+    
+  <div id="validacija" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">... :(</h5>
+        </div>
+        <div class="modal-body">
+          <p id="validacija_text"></p>
+        </div>
+        <div class="modal-footer">
+          <button id="validacija_close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="javascripts/edit_profile.js"></script>

@@ -1,0 +1,78 @@
+body {
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+.input-field {
+    width: 300px;
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: none;
+}
+
+label {
+    color: rgb(62, 62, 62);
+}
+
+h1 {
+    margin: 1em;
+    color: gray;
+}
+
+.old-pass {
+    margin-bottom: 2em;
+}
+
+.inputi {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-submit {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.btn-primary {
+    background-color: rgb(159, 227, 169);
+    border: none;
+    padding: 1em 2em;
+}
+
+.btn-primary:hover {
+    background-color: rgb(116, 165, 124);
+    border: none;
+    padding: 1em 2em;
+}
+
+.btn-primary:focus {
+    background-color: rgb(159, 227, 169);
+    border: none;
+    padding: 1em 2em;
+}
+
+.margin-gumb {
+    margin-bottom: 4em;
+}
+
+h2 {
+    color: gray;
+    margin-bottom: 1em;
+}
+
+.mrg {
+    margin-bottom: 2em;
+}
+
+.optional {
+    color: gray;
+    font-size: .5em;
+}
+
+img {
+    border-radius: 100em;
+}
+
+.naslov {
+    width: 300px;
+}

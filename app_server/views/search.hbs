@@ -1,0 +1,48 @@
+<head>
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="stylesheets/style_index.css" rel="stylesheet" />
+</head>
+<div class="container-fluid">
+    <div class="d-inline-flex justify-content-center row p-5">
+        {{#each search as |recept|}}
+        <div class="card m-2 p-2 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <img {{{slika recept.img.contentType recept.img.data}}} class="text-break" style="width:100%">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">{{recept.name}}</h5>
+                <a data-bs-toggle="modal" data-bs-target="#myModal{{@index}}" href="#" class="btn btn-success mt-auto">Show
+                    recipe</a>
+                <p></p>
+                <div class="d-flex justify-content-center mt-3">
+                    {{{zvezdice recept.stars}}}
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal{{@index}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-break" id="exampleModalLabel" >{{recept.name}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-break">{{recept.description}}</p>
+                        <p><b>Preparation time: </b>{{recept.preparation}} mins</p>
+                        <p><b>Cooking time: </b>{{recept.cooking}} mins</p>
+                        {{#each recept.calories as |kalo|}}
+                        <p><b>Calories: </b>{{kalo.calories}}</p>
+                        <p><b>Servings: </b>{{kalo.servings}}</p>
+                        {{/each}}
+                        {{#each recept.ingredients as |ingri|}}
+                            {{#each ingri.ingredientsList as |ingric|}}
+                        <p class="text-break"><b>Ingredients: </b>{{ingric}}</p>
+                            {{/each}}
+                        {{/each}}
+                        <p class="text-break"><b>Preparation instructions: </b>{{recept.instructions}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <script src="javascripts/mainPage.js"></script>
+</div>

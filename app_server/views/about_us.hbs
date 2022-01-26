@@ -1,0 +1,64 @@
+<head>
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="stylesheets/style_aboutus.css" rel="stylesheet" />
+</head>
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-6 brdr about-naslov">
+            <h1 class="naslov-h1">About us.</h1>
+        </div>
+
+        <div class="col-sm-6 brdr about-text1">
+            <p>Aplikacija Recipes za lasten projekt pri predmetu Spletno programiranje.</p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6 brdr contact-naslov">
+            <h1 class="naslov-h1">Contact us.</h1>
+        </div>
+
+
+        <div class="col-sm-6 brdr contact-input-field">
+            <form action="mailto:test@gmail.com" method="get" enctype="text/plain">
+                <div class="container">
+                    <div>
+                        <input type="text" placeholder="Name..." class="ime text-field" name="nme">
+                    </div>
+                    <div>
+                        <input type="mail" placeholder="E-mail..." class="email text-field" name="email_nme"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                    </div>
+                    <div>
+                        <textarea class="comment text-field" name="text" rows="4" placeholder="Leave your message..."
+                            id="comment_nme"></textarea>
+                    </div>
+                    <div>
+                        <button id="send_btn" type="submit" class="btn btn-primary">SEND</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="validacija" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">... :(</h5>
+            </div>
+            <div class="modal-body">
+                <p id="validacija_text"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="validacija_close" type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="javascripts/about_us.js"></script>
+</div>

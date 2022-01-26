@@ -1,0 +1,273 @@
+body{
+	background: #e3f0e5;
+}
+
+.body-margin {
+    margin: 2em;
+}
+
+.col{
+	display: inline-block;
+}
+.col{
+	display: inline-block;
+}
+
+.btn-light{
+	background-color: rgb(198, 231, 203) !important;
+	border-color: rgb(198, 231, 203) !important;
+    float: right;
+	margin-top: .5em;
+	box-shadow: 2px 3px 5px #c5c3c3;
+}
+.btn-light:hover {
+	box-shadow: 0.4em 0.5em 0.5em -0.4em #c5c3c3;
+  	transform: translateX(-0.25em);
+}
+
+.edtBtn{
+    color: #ffffff;
+    position: absolute;
+    right: 2em;
+    text-shadow: 1px 1px 2px rgb(120, 114, 114), 0 0 25px rgb(82, 82, 92), 0 0 5px rgb(155, 155, 182);
+}
+
+.deleteBtn{
+    color: #ffffff;
+    padding: .5em;
+    text-shadow: 1px 1px 2px rgb(120, 114, 114), 0 0 25px rgb(82, 82, 92), 0 0 5px rgb(155, 155, 182);
+}
+
+.edtBtn:hover{
+    color: rgb(53, 182, 199);
+}
+
+.deleteBtn:hover{
+    color: rgb(222, 74, 74);
+}
+
+.head{
+	text-shadow: 5px 5px 5px rgba(0, 0, 0, .2); 
+	margin-top: .5em;
+}
+
+.mini{
+	font-size: 14pt;
+	color: gray;
+}
+
+
+.pic-container{
+	display: inline-block;
+}
+
+.profile-pic {
+	display: inline-block;
+}
+
+.username {
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+}
+
+.username-container{
+	display: inline-block;
+}
+
+.aligned {
+    display: flex;
+    align-items: inherit;
+    padding: 1em;
+	background-color: rgb(233, 252, 239);
+    border-radius: .5em;
+    align-items: center;
+}
+
+.col {
+	display: inline-block;
+}
+
+.info {
+    padding: 10px;
+}
+
+
+.about{
+    padding: 2em;
+    background-color: rgb(233, 252, 239);
+    border-radius: .5em;
+}
+.recipe {
+	margin-top: 2em;
+	padding: 2em;
+	background-color: rgb(233, 252, 239);
+	border-radius: .5em;
+}
+
+.container-slider {
+	display: flex;
+	overflow-x: auto;
+}
+
+.my-recipes {
+	margin: 2em;
+}
+
+.kartica {
+	position: relative;
+	text-align: center;
+	margin: 1em;
+	
+}
+
+.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+}
+
+.add-align{
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgb(53, 182, 199);
+	font-weight: bolder;
+}
+
+.btn-outline-info{
+	width: 70px;
+	height: 70px;
+	padding: 10px 16px;
+	border-radius: 35px;
+	font-size: 29px;
+	text-align: center;
+}
+
+.boxin{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.icon-fix {
+    position: relative;
+    top: -2px;
+}
+
+.margin-fix {
+    margin-top: 10px;
+}
+
+.margin-fix-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ingredientsButton {
+    background-color: #212529;
+    border-radius: 10px;
+    padding: 20px 30px;
+    color: white;
+    text-align: center;
+}
+
+.ingredientsButton:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#ingredients {
+    margin: 0;
+    border: none;
+    border-radius: 10px;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    text-align: center;
+}
+
+.ingredientItem {
+    padding: 10px;
+    width: 22%;
+    float: right;
+    border-radius: 10px;
+    background: #555555;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ingredientItem:hover {
+    background-color: gray;
+    color: #212529;
+}
+
+.close {
+    float: right;
+    right: 0;
+    top: 0;
+    padding: 2px 6px 2px 6px;
+}
+
+.close:hover {
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+}
+
+.ingredientItem {
+    overflow-wrap: anywhere;
+}
+
+.list-group {
+    padding-left: 2em;
+}
+
+.box-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#preparationInstructions {
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 250px;
+}
+
+#shortDescription {
+    background-image: url("../images/icons/light-bulb.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 150px;
+}
+
+#ingredientList {
+    margin: 20px 0 20px 0;
+    border-radius: 10px;
+}
+
+.ingredientListItem {
+    padding: 3px 5px 3px 5px;
+    position: relative;
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+.ingredientListItem {
+    margin: 5px 5px 5px 0;
+}
+
+.ingredientListItem:hover {
+    border-radius: 10px;
+}

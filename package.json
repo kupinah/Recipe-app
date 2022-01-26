@@ -1,0 +1,49 @@
+{
+  "name": "lp21",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha test --bail --reporter mochawesome --reporter-options autoOpen=true,reportDir=test/porocilo,reportFilename=porocilo,json=false"
+  },
+  "engines": {
+    "node": ">=16.9.0",
+    "npm": ">=7.21.1"
+  },
+  "dependencies": {
+    "@truffle/contract": "^4.4.2",
+    "@truffle/hdwallet-provider": "^2.0.0",
+    "axios": "*",
+    "base64-arraybuffer": "^1.0.1",
+    "body-parser": "*",
+    "buffer": "^6.0.3",
+    "Buffer": "^0.0.0",
+    "chart.js": "^3.7.0",
+    "cookie-parser": "*",
+    "debug": "*",
+    "dotenv": "^10.0.0",
+    "express": "*",
+    "express-jwt": "*",
+    "hbs": "*",
+    "http-errors": "*",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "*",
+    "morgan": "*",
+    "multer": "^1.4.3",
+    "ng-bootstrap": "^1.6.3",
+    "ng2-charts": "^3.0.5",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0",
+    "uuidv4": "^6.2.12"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chromedriver": "^96.0.0",
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "selenium-webdriver": "^4.1.0"
+  }
+}

@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 one box-shadow">
+        <form action="/api/login" method="post">
+            <legend><b>Log in</b></legend>
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Username" name="tbUsername" class="form-control box-shadow" required>
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Password" name="tbGeslo" class="form-control box-shadow" required>
+            <div class="buttons">
+                <button class="btn-sm btn-dark"><i class="fas fa-sign-in-alt"></i> Log in!</button>
+            </div>
+            <div class="prijava">
+                <input id="cb" type="checkbox">
+                <label id="lblPrijava">Remember me</label>
+            </div>
+            <a id="register_new" href="">Create new account</a>
+        </form>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 two">
+        <form action="/api/register" method="POST">
+            <legend><b>Registration</b></legend>
+            <label><b>First name</b></label>
+            <input type="text" placeholder="First name" name="tbIme" class="form-control box-shadow"
+                pattern="^[a-zA-Z]+$" required>
+            <label><b>Last name</b></label>
+            <input type="text" placeholder="Last name" name="tbPriimek" class="form-control box-shadow"
+                pattern="^[a-zA-Z]+$" required>
+            <label><b>Email</b></label>
+            <input type="email" placeholder="Email" name="tbMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                class="form-control box-shadow" required>
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Username" name="tbUsername" class="form-control box-shadow"
+                pattern="^(?![_.])[a-zA-Z0-9._]+(?<![_.])$" required>
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Password" name="tbGeslo"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control box-shadow" required>
+            <label><b>Repeat password</b></label>
+            <input type="password" placeholder="Repeated password" name="tbGesloPon" class="form-control box-shadow"
+                required>
+            <div class="buttons">
+                <button type="submit" class="btn-sm btn-dark" id="signup_btn"> <i class="fas fa-user-plus"></i> Sign
+                    up!</button>
+            </div>
+            <a id="login_href" href="">Already have an account?</a>
+        </form>
+    </div>
+</div>
+<div id="validacija" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">... :(</h5>
+            </div>
+            <div class="modal-body">
+                <p id="validacija_text"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="validacija_close" type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+  <script src="javascripts/login.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css"/>
+  <link rel="stylesheet" href="stylesheets/style_login.css">
+</div>

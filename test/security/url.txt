@@ -1,0 +1,8 @@
+http://localhost:3000/
+http://localhost:3000/myprofile
+http://localhost:3000/calculator
+http://localhost:3000/aboutus
+http://localhost:3000/myprofile
+http://localhost:3000/myprofile
+http://localhost:3000/edit-profile
+http://localhost:3000/login

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 one">
+    <form (ngSubmit)="prijava()">
+      <div *ngIf="napakaNaObrazcu" class="form-group">
+        <div class="alert alert-dark p-2 mt-4" role="alert">
+          <i class="fas fa-exclamation-triangle pe-2" [innerHTML]="napakaNaObrazcu | italic"></i>
+        </div>
+      </div>
+      <legend><b>Log in</b></legend>
+      <label><b>Username</b></label>
+      <input [(ngModel)] = "prijavniPodatki.uporabniskoIme" type="text" placeholder="Username" name="tbUsername" class="form-control box-shadow" required>
+      <label><b>Password</b></label>
+      <input [(ngModel)] = "prijavniPodatki.geslo" type="password" placeholder="Password" name="tbGeslo" class="form-control box-shadow" required>
+      <div class="buttons">
+        <button id="btnLogin" class="btn-sm btn-dark"><i class="fas fa-sign-in-alt"></i> Log in!</button>
+      </div>
+      <div class="prijava">
+        <input id="cb" type="checkbox" disabled checked>
+        <label id="lblPrijava">Remember me</label>
+      </div>
+      <a id="register_new" (click)="pobrisiNapako()" href="/">Create new account</a>
+    </form>
+  </div>
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 two">
+    <form (ngSubmit)="izvediRegistracijo()">
+      <div *ngIf="napakaNaObrazcu" class="form-group">
+        <div class="alert alert-dark p-2 mt-4" role="alert">
+          <i class="fas fa-exclamation-triangle pe-2" [innerHTML]="napakaNaObrazcu | newline | underline"></i>
+        </div>
+      </div>
+      <legend><b>Registration</b></legend>
+      <label><b>First name</b></label>
+      <input [(ngModel)] = "prijavniPodatki.ime" type="text" placeholder="First name" name="tbIme" class="form-control box-shadow"
+             pattern="^[a-zA-Z]+$" required>
+      <label><b>Last name</b></label>
+      <input [(ngModel)] = "prijavniPodatki.priimek" type="text" placeholder="Last name" name="tbPriimek" class="form-control box-shadow"
+             pattern="^[a-zA-Z]+$" required>
+      <label><b>Email</b></label>
+      <input [(ngModel)] = "prijavniPodatki.email" type="email" placeholder="Email" name="tbMail"
+             class="form-control box-shadow" required>
+      <label><b>Username</b></label>
+      <input [(ngModel)] = "prijavniPodatki.uporabniskoIme" type="text" placeholder="Username" id="tbUsernameP" name="tbUsername" class="form-control box-shadow"
+             required>
+      <label><b>Password</b></label>
+      <input [(ngModel)] = "prijavniPodatki.geslo" type="password" placeholder="Password" id="tbGesloP" name="tbGeslo" class="form-control box-shadow"
+             required>
+      <label><b>Repeat password</b></label>
+      <input [(ngModel)] = "prijavniPodatki.geslo_rep"type="password" placeholder="Repeated password" name="tbGesloPon" class="form-control box-shadow"
+             required>
+      <div class="buttons">
+        <button type="submit" class="btn-sm btn-dark" id="signup_btn"> <i class="fas fa-user-plus"></i> Sign
+          up!</button>
+      </div>
+      <a id="login_href" href="login">Already have an account?</a>
+    </form>
+  </div>
+</div>
+<div id="validacija" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">... :(</h5>
+      </div>
+      <div class="modal-body">
+        <p id="validacija_text"></p>
+      </div>
+      <div class="modal-footer">
+        <button id="validacija_close" type="button" class="btn btn-secondary"
+                data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

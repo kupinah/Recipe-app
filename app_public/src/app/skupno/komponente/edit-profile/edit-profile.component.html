@@ -1,0 +1,105 @@
+<head>
+  <link href="/assets/stylesheets/style.css" rel="stylesheet" />
+  <link href="/assets/stylesheets/style_edit_profile.css" rel="stylesheet" />
+</head>
+
+<h1>Edit profile</h1>
+
+<div class="container">
+
+  <div *ngIf="obrazecNapaka" class="form-group">
+    <div class="alert alert-dark p-2 mt-4" role="alert">
+      <i class="fas fa-exclamation-triangle pe-2" [innerHTML]="obrazecNapaka | newline"></i>
+    </div>
+  </div>
+  
+  <div class="row">
+
+
+
+
+    <div class="col inputi">
+      <form (ngSubmit)="spremeniPodatkeUserja()">
+        <h2>Edit details</h2>
+        <div class="mrg">
+          <label for="UserUporabniskoIme"><b>Username</b></label>
+          <br>
+          <input [(ngModel)] = "prijavniPodatki.uporabniskoIme" type="text" id="UserUporabniskoIme" placeholder="Username" value="{{uporabnik.uporabniskoIme}}" class="edit-my-profile input-field" name="uporabniskoIme" pattern="^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"  disabled>
+        </div>
+        <div>
+          <label for="userIme"><b>First name</b></label>
+          <br>
+          <input [(ngModel)] = "prijavniPodatki.ime" type="text" id="userIme" placeholder="First name" value="" class="edit-my-profile input-field" name="ime" >
+        </div>
+        <div class="mrg">
+          <label for="userPriimek"><b>Second name</b></label>
+          <br>
+          <input [(ngModel)] = "prijavniPodatki.priimek" type="text" id="userPriimek" placeholder="Second name" value="{{uporabnik.priimek}}" class="edit-my-profile input-field" name="priimek" >
+        </div>
+        <div>
+          <label for="userLokacija"><b>Location <span class="optional"><em>(optional)</em></span></b></label>
+          <br>
+            <!--input type="text" id="userLokacija" placeholder="Location" class="edit-my-profile input-field" name="lokacija_input_field" value='{{detajli.location}}'-->
+            <textarea [(ngModel)] = "prijavniPodatki.details.location" name="location" id="userLokacija" placeholder="Location" rows="1" class="input-field" style="resize: none;"></textarea>
+        </div>
+        <div class="mrg">
+          <label for="userAbout"><b>About <span class="optional"><em>(optional, max 300 elements)</em></span></b></label>
+          <br>
+          <textarea [(ngModel)] = "prijavniPodatki.details.about" name="about" id="userAbout" placeholder="About" rows="4" class="input-field" ></textarea>
+          <!--input [(ngModel)] = "prijavniPodatki.details.about" name="about" id="userAbout" placeholder="About" rows="4" class="input-field"-->
+
+        </div>
+        <div>
+          <label for="userEmail"><b>Email</b></label>
+          <br>
+          <input [(ngModel)] = "prijavniPodatki.email" type="email" id="userEmail" placeholder="Email" value="{{uporabnik.email}}" class="edit-my-profile input-field" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+        </div>
+        <div>
+          <button type="submit" id="send_btn_details" class="btn btn-primary margin-gumb btn-submit">Submit changes</button>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="col inputi">
+
+      <form (ngSubmit)="spremeniGeslo()">
+
+
+
+        <h2>Change password</h2>
+        <div class="old-pass">
+          <label><b>Old password</b></label>
+          <br>
+          <input [(ngModel)] = "prijavniPodatki.staro_geslo" type="password" placeholder="Old password" class="edit-my-profile input-field" name="staro_geslo">
+        </div>
+        <div>
+          <label><b>New password</b></label>
+          <br>
+          <input [(ngModel)] = "prijavniPodatki.geslo" type="password" placeholder="New password" class="edit-my-profile input-field" name="geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        </div>
+        <div>
+          <label><b>Repeat new password</b></label>
+          <br>
+          <input [(ngModel)] = "prijavniPodatki.geslo_rep" type="password" placeholder="Repeat password" class="edit-my-profile input-field" name="geslo_rep" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        </div>
+        <div>
+          <button type="submit" id="send_btn_geslo" class="btn btn-primary btn-submit">Change password</button>
+        </div>
+
+
+        <div *ngIf="alertMessage" class="form-group">
+          <div class="alert alert-dark p-2 mt-4" role="alert">
+            <i class="fas fa-exclamation-triangle pe-2"></i>{{ alertMessage }}
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+<script src="/assets/javascripts/edit_profile.js"></script>

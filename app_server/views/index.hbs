@@ -1,0 +1,115 @@
+<head>
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="stylesheets/style_index.css" rel="stylesheet" />
+</head>
+<div class="container-fluid">
+    <div class="d-inline-flex justify-content-center row p-5 zasrc">
+        {{#each seznam as |recept|}}
+        <div class="card m-2 p-2 col-sm-6 col-md-4 col-lg-3 col-xl-2 recept">
+            <img {{{slika recept.img.contentType recept.img.data}}} class="text-break" style="width:100%">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center text-break">{{recept.name}}</h5>
+                <a data-bs-toggle="modal" data-bs-target="#myModal{{@index}}" href="#"
+                    class="btn btn-success mt-auto">Show
+                    recipe</a>
+                <p></p>
+                <div class="d-flex justify-content-center mt-3">
+                    {{{zvezdice recept.avg}}}
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal{{@index}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-break" id="exampleModalLabel">{{recept.name}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-break">{{recept.description}}</p>
+                        <p><b>Preparation time: </b>{{recept.preparation}} mins</p>
+                        <p><b>Cooking time: </b>{{recept.cooking}} mins</p>
+                        {{#each recept.calories as |kalo|}}
+                        <p><b>Calories: </b>{{kalo.calories}}</p>
+                        <p><b>Servings: </b>{{kalo.servings}}</p>
+                        {{/each}}
+                        {{#each recept.ingredients as |ingri|}}
+                        {{#each ingri.ingredientsList as |ingric|}}
+                        <p class="text-break"><b>Ingredients: </b>{{ingric}}</p>
+                        {{/each}}
+                        {{/each}}
+                        <p class="text-break"><b>Preparation instructions: </b>{{recept.instructions}}</p>
+                        <p><b>My rating</b></p>
+                        <form action="/api/rateRecipe" method="post" role="form">
+                            <div class="row align-middle">
+                                <input type="text" value="{{recept._id}}" name="skrito" hidden>
+                                <div class="d-grid col-6 col-sm-6 col-md-3 col-lg-3 ">
+                                    <select class="form-select box-shadow" id="rating" name="rating" required>
+                                        <option hidden disabled label="Select"></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="d-grid col-6 col-sm-6 col-md-3 col-lg-3">
+                                    <button class="btn btn-primary btn-dark fs-5 box-shadow" type="submit">Rate</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--<div class="rating">
+                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <template id="myTemplate">
+        <div class="card m-2 p-2 col-sm-6 col-md-4 col-lg-3 col-xl-2 recept">
+            <img src="" class="text-break" style="width:100%">
+            <div class="card-body d-flex flex-column">
+                <h5 id="ImeRecepta" class="card-title text-center text-break">Recept</h5>
+                <a data-bs-toggle="modal" data-bs-target="#myModal{{@index}}" href="#"
+                    class="btn btn-success mt-auto">Show
+                    recipe</a>
+                <p></p>
+                <div class="d-flex justify-content-center mt-3"><i style="color: lightblue;" class="fas fa-check-double"></i></div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal{{@index}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-break" id="exampleModalLabel">Recept</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Total time: </b> mins</p>
+                        <p><b>Calories: </b>calories</p>
+                        <p><b>Servings: </b>kalo.servings</p>
+                        <p class="text-break"><b>Ingredients: </b>ingric</p>
+                        <p></p>
+                        {{!-- <p><b>My rating</b></p>
+                        <div class="rating">
+                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="javascripts/mainPage.js"></script>
+</div>
